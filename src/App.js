@@ -4,17 +4,13 @@ import UserCard from './UserCard';
 import { Center, Flex, Heading } from '@chakra-ui/react';
 
 function App() {
-  const [name, setName] = useState('hello');
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     axios
       .get('api/allUsers')
       .then((res) => {
-        console.log(res.data);
         setUsers(res.data);
-        console.log(users);
-        setName('irfan');
       })
       .catch((err) => {
         console.log(err);
